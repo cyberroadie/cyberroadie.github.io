@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Giant Robot I/O</title>
+    <link rel="stylesheet" href="tufte.css"/>
+    <link rel="stylesheet" href="latex.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<h1 id="tufte-css">Creating a simple material in Substance Designer</h1>
+<article>
+    <section>
+        <p>
+            Unreal Engine 4 adopted a physical based material and shading model which is based on the ’Metallic/Specular’
+            model. To start a newSubstance create choose File -> New Substance and select ’PhysicalBase (Metallic/Roughness)’
+            and Graph Name: Tiles.
+            <figure>
+                <label for="new_substance_graph" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="new_substance_graph" class="margin-toggle"/>
+                <img src="img/substance_tiles/new_substance_graph.png" alt="Creating a new Substance" />
+            </figure>
+        </p>
+        <p>
+            You will start with five tiles<label for="sn-demo" class="margin-toggle sidenote-number"></label>:
+            <input type="checkbox" id="sn-demo" class="margin-toggle"/>
+            <span class="sidenote">
+                    Start Tiles<br/>
+                    <img style="height: 35%; width: 35%;" src="img/substance_tiles/5_start_tiles.png" alt="Start tiles"/>
+            </span>
+            <ul>
+                <li>Base Color</li>
+                <li>Normal</li>
+                <li>Roughness</li>
+                <li>Metallic</li>
+                <li>Height</li>
+            </ul>
+        <p>
+            These are the outputs and each represent an image of your material.
+        </p>
+        <p>
+            <span class="newthoughti">Base color</span>
+            Add two 'Gradient Map' nodes and one 'Tile Generator' node. Change to color of the 'Gradient Maps'
+            and change the 'Tile Generator' as follows:
+            <ul>
+                <li>Scale: 1.1 (this will make the grout gaps very thin)</li>
+                <li>Random Mask: 0.13 (this will render certain tiles black)</li>
+            </ul>
+        </p>
+        <p>Hook the up as shown in figure X</p>
+        <p>
+            <span class="newthoughti">Grout</span>
+
+        </p>
+    </section>
+</article>
+</body>
+</html>
