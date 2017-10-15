@@ -8,9 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<h1 id="tufte-css">Creating a simple material in Substance Designer</h1>
+<h1 id="tufte-css">Creating a simple material in<br/> Substance Designer</h1>
 <article>
     <section>
+        <img style="alignment: center;" src="img/substance_tiles/tiles_top.png"/>
         <p>
             Unreal Engine 4 adopted a physical based material and shading model which is based on the ’Metallic/Specular’
             model. To start a newSubstance create choose File -> New Substance and select ’PhysicalBase (Metallic/Roughness)’
@@ -39,9 +40,9 @@
             These are the outputs and each represent an image of your material.
         </p>
         <p>
-            <span class="newthoughti">Base color</span>
-            Add two 'Uniform Color' nodes and one 'Tile Generator' node. Change to color of the 'Uniform Color' nodes to
-            light blue (#ff49beec) and blue-ish white (#ffd6f2f6) and change the 'Tile Generator' as follows:
+            <span class="newthoughti">Tile Generator</span>
+            Add two 'Uniform Color' nodes and one 'Tile Generator' node (Grayscale). Change to color of the 'Uniform Color' nodes to
+            blue-ish white (#ffd6f2f6) and light blue (#ff49beec) and change the 'Tile Generator' as follows:
             <ul>
                 <li>Scale: 1.1 (this will make the grout gaps very thin)</li>
                 <li>Random Mask: 0.13 (this will render certain tiles black)</li>
@@ -50,12 +51,87 @@
         <p>Add a Blend node and connect everything up as shown below:</p>
         <p>
             <figure>
-                <img src="img/substance_tiles/substancebasecolor.png" alt="Creating a new Substance" />
+                <img src="img/substance_tiles/tile_generator.png" alt="Tile Generator" />
             </figure>
         </p>
         <p>
             <span class="newthoughti">Grout</span>
-
+            Add a 'Fractal Sum 1' node and attach it to a Gradient node to convert it from grayscale to color. Next
+            add a 'Tile generator' node, set scale to 0.93 to make the lines thicker and invert it. Blend the two together.
+            <figure>
+                <label for="grout" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="grout" class="margin-toggle"/>
+                <img src="img/substance_tiles/grout.png" alt="Creating Grout" />
+            </figure>
+        </p>
+        <p>
+            <span class="newthoughti">Base Color</span>
+            Take to output of the first Blend node and attach it to the middle attachment point of the grout blend node.
+            And attach the grout blend node to the base color.
+            <figure>
+                <label for="base_color" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="base_color" class="margin-toggle"/>
+                <img src="img/substance_tiles/base_color.png" alt="Base Color" />
+            </figure>
+        </p>
+        <p>
+            <span class="newthoughti">Roughness</span>
+            Connect the 'Invert Greyscale' node directly to the Roughness output node
+            <figure>
+                <label for="rougness" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="rougness" class="margin-toggle"/>
+                <img src="img/substance_tiles/roughness.png" alt="Roughness" />
+            </figure>
+        </p>
+        <p>
+            <span class="newthoughti">Normal</span>
+            Connect the 'Invert Grayscale' to a Normal node and then to the normal output.
+            <figure>
+                <label for="normal" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="normal" class="margin-toggle"/>
+                <img src="img/substance_tiles/normal.png" alt="Normal" />
+            </figure>
+        </p>
+        <p>
+            <span class="newthoughti">Metallic</span>
+            Connect the grout 'Tile Generator' node to a HSL node. In the HSL node lower the lightness from 0.5 to 0.07.
+            Then connect it to the Metallic output.
+            <figure>
+                <label for="metallic" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="metallic" class="margin-toggle"/>
+                <img src="img/substance_tiles/metallic.png" alt="Metallic" />
+            </figure>
+        </p>
+        <p>
+            <span class="newthoughti">Height</span>
+            Connect the grout 'Tile Generator' node directly to the Height output node. To be able to see it go the menu
+            of the 3d viewer. Select: Materials -> Default -> Edit. Change te Scale property to 0.02.
+            <figure>
+                <label for="height" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="height" class="margin-toggle"/>
+                <img src="img/substance_tiles/height.png" alt="Roughness" />
+            </figure>
+        </p>
+        <p>
+            <span class="newthoughti">Result</span>
+            The end result should look like this:
+            <figure>
+                <label for="3dviewer" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="3dviewer" class="margin-toggle"/>
+                <img src="img/substance_tiles/3d_viewer.png" alt="Result" />
+            </figure>
+        </p>
+        <p>
+            <span class="newthoughti">Download</span>
+            <a href="downloads/Tiles.sbs">Tiles.sbs</a><br/>
+            License: Free to use it in any way you want (Commercial or Non-commercial).
+        </p>
+        <p>
+            <figure>
+                <label for="complete_material" class="margin-toggle">&#8853;</label>
+                <input type="checkbox" id="complete_material" class="margin-toggle"/>
+                <img src="img/substance_tiles/complete_material.png" alt="Result" />
+            </figure>
         </p>
     </section>
 </article>
